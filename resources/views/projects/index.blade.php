@@ -11,6 +11,7 @@
                     <h6><b>Created at: </b>{{$proj->created_at}}</h6>
                 </li>
             @endforeach
+            {{$projects->links()}}
         </ul>
     @else
         <p>No projects yet</p>
