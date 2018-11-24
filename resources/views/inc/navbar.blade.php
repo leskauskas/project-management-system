@@ -3,6 +3,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/">Home</a>
         <a class="p-2 text-dark" href="/about">About Us</a>
+        <a class="p-2 text-dark" href="/projects">My projects</a>
     </nav>
     <a class="btn btn-outline-primary" href="#">Register</a>
 </div>
