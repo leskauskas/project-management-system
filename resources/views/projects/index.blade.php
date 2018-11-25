@@ -39,7 +39,8 @@
                             {{ Form::textarea('description', '', ['class' => 'form-control', 'placeholder' => 'Description'])}}
                         </div>
                         <div class="form-group">
-                            {{ Form::select('priority', ['H' => 'High', 'M' => 'Medium', 'S' => 'Small'], 'S') }}
+                            {{ Form::label('priority', 'Priority')}}
+                            {{ Form::select('priority', ['H' => 'High', 'M' => 'Medium', 'S' => 'Small'], 'S', ['class' => 'form-control']) }}
                         </div>
                         {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                     {!! Form::close() !!}
