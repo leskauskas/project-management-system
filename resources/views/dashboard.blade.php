@@ -1,25 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<h1>
-    Projects
+<div class="container">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProjModal">New Project</button>
-</h1>
-    @if (count($projects) > 0)
-        <ul class="list-group">
-            @foreach ($projects as $proj)
-                <li class="list-group-item">
-                <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>
-                    <h6><b>Created at: </b>{{$proj->created_at}}</h6>
-                </li>
-            @endforeach
-            {{$projects->links()}}
-        </ul>
-    @else
-        <p>No projects yet</p>
-    @endif 
-
     {{-- new project modal --}}
     <div class="modal fade" id="newProjModal" tabindex="-1" role="dialog" aria-labelledby="newProjModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -49,4 +32,17 @@
         </div>
     </div>
 
+    @if (count($projects) > 0)
+        <ul class="list-group">
+            @foreach ($projects as $proj)
+                <li class="list-group-item">
+                <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>
+                    <h6><b>Created at: </b>{{$proj->created_at}}</h6>
+                </li>
+            @endforeach
+        </ul>
+    @else
+        <p>No projects yet</p>
+    @endif 
+</div>
 @endsection

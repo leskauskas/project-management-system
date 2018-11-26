@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Project;
 
 class ProjectsController extends Controller
@@ -38,15 +39,17 @@ class ProjectsController extends Controller
     {
         $this->validate($request, [
             'project' => 'required',
+            'description' => 'required'
         ]);
 
         $project = new Project;
         $project->name = $request->input('project');
         $project->description = $request->input('description');
         $project->priority = $request->input('priority');
+        $project->user_id = auth()->user()->id;
         $project->save();
 
-        return redirect('/projects')->with('success', 'New project added');
+        return redirect('/dashboard')->with('success', 'New project added');
     }
 
     /**
