@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     public function project(){
-        return $this->belongsTo('App\Project');
+        return $this->belongsTo('App\Project', 'project_id');
     }
 }
