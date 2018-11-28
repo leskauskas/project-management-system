@@ -7,7 +7,7 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProjModal">New Project</button>
 </h1>
     @if (count($projects) > 0)
-        <ul class="list-group">
+        <ul class="list-group mt-1">
             @foreach ($projects as $proj)
                 <li class="list-group-item">
                 <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>

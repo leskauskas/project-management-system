@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
+use App\Task;
+
 
 class TasksController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +47,20 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'task_name' => 'required',
+            'status' => 'required'
+        ]);
+
+        $project_id = $request->input('project_id');
+        $task = new Task;
+        $task->task_name = $request->input('task_name');
+        $task->status = $request->input('status');
+        $task->due_date = $request->input('due_date');
+        $task->project_id = $project_id;
+        $task->save();
+
+        return redirect()->back();
     }
 
     /**

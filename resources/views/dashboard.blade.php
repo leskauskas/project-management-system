@@ -33,7 +33,7 @@
     </div>
 
     @if (count($projects) > 0)
-        <ul class="list-group">
+        <ul class="list-group mt-3">
             @foreach ($projects as $proj)
                 <li class="list-group-item">
                 <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>

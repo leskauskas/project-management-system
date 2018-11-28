@@ -18,3 +18,4 @@ Route::resource('projects', 'ProjectsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::post('','TasksController@store');
