@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
+use App\Note;
 
 class NotesController extends Controller
 {
@@ -34,7 +36,7 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
