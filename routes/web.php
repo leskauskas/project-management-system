@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::post('','TasksController@store');
+Route::post('/dashboard','ChecklistsController@store');

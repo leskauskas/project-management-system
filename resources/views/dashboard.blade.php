@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProjModal">New Project</button>
     {{-- new project modal --}}
     <div class="modal fade" id="newProjModal" tabindex="-1" role="dialog" aria-labelledby="newProjModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -32,17 +31,47 @@
         </div>
     </div>
 
-    @if (count($projects) > 0)
-        <ul class="list-group mt-3">
-            @foreach ($projects as $proj)
-                <li class="list-group-item">
-                <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>
-                <h6><b>Created at: </b>{{$proj->created_at}} {{$proj->user->name}}</h6>
-                </li>
+    <div class="row">
+        <div class="col-8">
+            <h5>Projects
+                    <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#newProjModal">+</button>
+            </h5>
+            @if (count($projects) > 0)
+                <ul class="list-group mt-3">
+                    @foreach ($projects as $proj)
+                        <li class="list-group-item">
+                        <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>
+                        <h6><b>Created at: </b>{{$proj->created_at}} {{$proj->user->name}}</h6>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <p>No projects yet</p>
+            @endif 
+        </div>
+        <div class="col-4">
+            <h5>My personal checklist</h5>
+            {!! Form::open(['action' => 'ChecklistsController@store', 'method' => 'POST']) !!}
+                <div class="form-group">
+                    {{ Form::text('checklist_title', '', ['class' => 'form-control', 'placeholder' => 'title'])}}
+                </div>
+                <div class="form-group">
+                    {{ Form::hidden('is_done', '0', ['class' => 'form-control']) }}
+                </div>
+                {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+            {!! Form::close() !!}
+
+            @foreach ($checklists as $c)
+            <li class="list-group-item">
+                {{$c->checklist_title}}
+            </li>
             @endforeach
-        </ul>
-    @else
-        <p>No projects yet</p>
-    @endif 
+        </div>
+    </div>
+        
+
+        
+
+
 </div>
 @endsection

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePublicTasksTable extends Migration
+class CreateChecklistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePublicTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('public_tasks', function (Blueprint $table) {
+        Schema::create('checklists', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('task_name');
+            $table->string('checklist_title');
             $table->tinyInteger('is_done');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -31,6 +31,6 @@ class CreatePublicTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('public_tasks');
+        Schema::dropIfExists('checklists');
     }
 }

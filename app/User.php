@@ -32,7 +32,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Project');
     }
 
-    public function publicTasks(){
-        return $this->hasMany('App\PublicTask');
+    public function checklists(){
+        return $this->hasMany('App\Checklist');
     }
+
 }
