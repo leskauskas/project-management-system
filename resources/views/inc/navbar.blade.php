@@ -43,7 +43,7 @@
             <i class="userAvatar"></i><span> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

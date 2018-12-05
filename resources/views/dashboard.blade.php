@@ -60,12 +60,13 @@
                 </div>
                 {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
             {!! Form::close() !!}
-
-            @foreach ($checklists as $c)
-            <li class="list-group-item">
-                {{$c->checklist_title}}
-            </li>
-            @endforeach
+         
+                @foreach ($checklists as $c)
+                    <li class="list-group-item">
+                        {{$c->checklist_title}}
+                    </li>
+                @endforeach    
+        
         </div>
     </div>
         
