@@ -40,7 +40,7 @@
     </nav>
     <nav id="top-nav">
         <div class="right-items">
-            <i class="userAvatar"></i><span> {{ Auth::user()->name }}</span>
+            <i class="userAvatar"></i><span> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
