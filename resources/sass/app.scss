@@ -4,6 +4,12 @@
 
 // Variables
 @import 'variables';
+@import 'navbar';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+main{
+    padding-top: 72px;
+    padding-left: 140px;
+}

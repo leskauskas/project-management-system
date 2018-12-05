@@ -1,4 +1,50 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);/*!
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);#side-nav {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
+          box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
+  width: 70px;
+  text-align: center;
+  z-index: 98;
+  padding-top: 80px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#side-nav a {
+  display: block;
+  margin: 1rem 0;
+}
+
+#side-nav a span {
+  display: none;
+  margin-left: 0.5rem;
+}
+
+#side-nav:hover {
+  width: 140px;
+}
+
+#side-nav:hover a span {
+  display: inline-block;
+}
+
+#top-nav {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
+          box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 100vw;
+  z-index: 99;
+  text-align: right;
+}
+
+/*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -10464,5 +10510,10 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+main {
+  padding-top: 72px;
+  padding-left: 140px;
 }
 
