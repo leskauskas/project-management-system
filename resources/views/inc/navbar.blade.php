@@ -1,12 +1,9 @@
 @guest
-
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        @guest
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'PMSys') }}
         </a>
-        @endguest
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,29 +25,6 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     </li>
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-                        <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
                 @endguest
             </ul>
         </div>
@@ -60,20 +34,22 @@
 @else
 <header>
     <nav id="side-nav">
-        <a href="#"><i class="fas fa-home"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fas fa-columns"></i><span>Kanban</span></a>
-        <a href="#"><i class="fas fa-chart-line"></i><span>Analytics</span></a>
+        <a href="#"><i class="fas fa-home" title="Dashboard"></i></a>
+        <a href="#"><i class="fas fa-columns" title="Kanban Board"></i></a>
+        <a href="#"><i class="fas fa-chart-line" title="Analytics"></i></a>
     </nav>
     <nav id="top-nav">
-            {{ Auth::user()->name }} <span class="caret"></span>
+        <div class="right-items">
+            <i class="userAvatar"></i><span> {{ Auth::user()->name }}</span>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                @csrf
+            </form>
+        </div>
     </nav>
 </header>
 @endguest

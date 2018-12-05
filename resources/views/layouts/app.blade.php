@@ -28,13 +28,15 @@
 <body>
     <div id="app">
         @include('inc.navbar') 
+        @guest
+            @include('inc.notification')
+            @yield('content')
+        @else
         <main>
-            
-                @include('inc.notification')
-                @yield('content')
-            
+            @include('inc.notification')
+            @yield('content')
         </main>
-        
+        @endguest
     </div>
 </body>
 </html>
