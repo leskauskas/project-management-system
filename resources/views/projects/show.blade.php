@@ -39,13 +39,12 @@
                             <h6><b>Due: </b>{{$proj_task->due_date}}</h6>
                         </div>
                         <div class="col-3">
-                            <a data-toggle="modal" data-target="#exampleModalLong"><i class="far fa-edit"></i></a>
+                            <a data-toggle="modal" data-target="#exampleModalLong-{{ $loop->iteration }}"><i class="far fa-edit"></i></a>
                             <a><i class="far fa-trash-alt"></i></a>
                         </div>
                             
-        
                         <!-- Edit task modal -->
-                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal fade" id="exampleModalLong-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -62,10 +61,10 @@
                             
                                     <div class="form-group">
                                         {{ Form::label('task_name', 'Task name')}}
-                                        {{ Form::text('task_name', '', ['class' => 'form-control', 'placeholder' => 'Task name'])}}
+                                        {{ Form::text('task_name', $proj_task->task_name, ['class' => 'form-control', 'placeholder' => 'Task name'])}}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::select('status', ['not started' => 'Not Started', 'in progress' => 'In progress', 'done' => 'Done'], null, ['class' => 'form-control']) }}
+                                        {{ Form::select('status', ['not started' => 'Not Started', 'in progress' => 'In progress', 'done' => 'Done'], $proj_task->status, ['class' => 'form-control']) }}
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('due_date', 'Due')}}
