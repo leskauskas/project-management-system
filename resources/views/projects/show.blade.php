@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('due_date', 'Due')}}
-                                        {{ Form::date('due_date', \Carbon\Carbon::now(), ['class' => 'form-control', 'placeholder' => 'Due date'])}}
+                                        {{ Form::text('due_date', $proj_task->due_date, ['class' => 'form-control', 'placeholder' => 'Due date'])}}
                                     </div>
                                     {{ Form::submit('Update', ['class' => 'btn btn-primary'])}}
                                     {!! Form::close() !!}
