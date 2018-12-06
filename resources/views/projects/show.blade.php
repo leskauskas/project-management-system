@@ -33,10 +33,52 @@
                 <hr>
                 <h5>Tasks</h5>
                 @foreach ($project->tasks as $proj_task)
-                    <div class="card p-1 mt-1" style="border-left: 3px solid #3490dc">
-                        <h6><b>{{$proj_task->task_name}}</b><span class="badge badge-danger">{{$proj_task->status}}</span></h6>
-                        <h6><b>Due: </b>{{$proj_task->due_date}}</h6>
-                    </div> 
+                    <div class="globalCard p-1 mt-1 row" style="border-left: 3px solid #3490dc; border-radius: 0;">
+                        <div class="col-9">
+                            <h6><b>{{$proj_task->task_name}}</b><span class="badge badge-danger ml-1">{{$proj_task->status}}</span></h6>
+                            <h6><b>Due: </b>{{$proj_task->due_date}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <a data-toggle="modal" data-target="#exampleModalLong"><i class="far fa-edit"></i></a>
+                            <a><i class="far fa-trash-alt"></i></a>
+                        </div>
+                            
+        
+                        <!-- Edit task modal -->
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">{{$proj_task->task_name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    {!! Form::model($proj_task, [
+                                        'method' => 'PATCH',
+                                        'route' => ['tasks.update', $proj_task->id]
+                                    ]) !!}
+                            
+                                    <div class="form-group">
+                                        {{ Form::label('task_name', 'Task name')}}
+                                        {{ Form::text('task_name', '', ['class' => 'form-control', 'placeholder' => 'Task name'])}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::select('status', ['not started' => 'Not Started', 'in progress' => 'In progress', 'done' => 'Done'], null, ['class' => 'form-control']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('due_date', 'Due')}}
+                                        {{ Form::date('due_date', \Carbon\Carbon::now(), ['class' => 'form-control', 'placeholder' => 'Due date'])}}
+                                    </div>
+                                    {{ Form::submit('Update', ['class' => 'btn btn-primary'])}}
+                                    {!! Form::close() !!}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+   
+                    </div>
                 @endforeach 
             </div>
             <div class="col-6">
@@ -44,4 +86,5 @@
             </div>
         </div>
     </div>
+    
 @endsection
