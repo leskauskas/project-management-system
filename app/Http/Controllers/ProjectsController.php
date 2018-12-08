@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Project;
+use App\Task;
 
 class ProjectsController extends Controller
 {
@@ -70,9 +71,18 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        $single_project = Project::find($id);
-        
-        return view('projects.show')->with('project', $single_project);
+        $project = Project::find($id);
+        $allProjects = Task::where('project_id', '=', $id)->count();
+        $doneProjects = Task::where([
+            ['status','=','done'],
+            ['project_id', '=', $id]
+            ])->count();
+
+        // percentage of a project done
+        $projectProgress = ($doneProjects/$allProjects)*100;
+
+        //return view('projects.show')->with('project', $single_project);
+        return view('projects.show', compact('project', 'allProjects', 'doneProjects', 'projectProgress'));
     }
 
     /**

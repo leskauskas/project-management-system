@@ -11,6 +11,10 @@
 
         <h1>{{$project->name}} </h1>
         <p>{{$project->description}}</p>
+
+        <div class="progress" style="height: 5px">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{$projectProgress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$projectProgress}}%; height: 5px"></div>
+        </div>
     
         <hr>
         <div class="row mt-1">
@@ -31,7 +35,8 @@
                     {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                 {!! Form::close() !!}
                 <hr>
-                <h5>Tasks</h5>
+                  
+                <h5>Tasks {{$doneProjects}}/{{$allProjects}}</h5> 
                 @foreach ($project->tasks as $proj_task)
                     <div class="globalCard p-1 mt-1 row" style="border-left: 3px solid #3490dc; border-radius: 0;">
                         <div class="col-9">
