@@ -36,7 +36,7 @@
                 {!! Form::close() !!}
                 <hr>
                   
-                <h5>Tasks {{$doneProjects}}/{{$allProjects}}</h5> 
+                <h5>Tasks {{$doneTasks}}/{{$allTasks}}</h5> 
                 @foreach ($project->tasks as $proj_task)
                     <div class="globalCard p-1 mt-1 row" style="border-left: 3px solid #3490dc; border-radius: 0;">
                         <div class="col-9">

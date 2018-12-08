@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Task;
 use App\Project;
 use App\Checklist;
 
@@ -29,11 +30,9 @@ class DashboardController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-       
-        
-
         $projects = $user->projects;
         $checklists = $user->checklists;
+        
         //return view('dashboard')->with('projects', $user->projects);
         return view('dashboard')->with(compact('projects', 'checklists'));
     }
