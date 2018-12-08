@@ -13,7 +13,7 @@
         <p>{{$project->description}}</p>
 
         <div class="progress" style="height: 5px">
-        <div class="progress-bar" role="progressbar" aria-valuenow="{{$projectProgress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$projectProgress}}%; height: 5px"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{$project->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$project->getProjectProgress()}}%; height: 5px"></div>
         </div>
     
         <hr>

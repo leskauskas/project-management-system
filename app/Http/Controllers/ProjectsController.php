@@ -78,11 +78,8 @@ class ProjectsController extends Controller
             ['project_id', '=', $id]
             ])->count();
 
-        // percentage of a project done
-        $projectProgress = ($doneTasks/$allTasks)*100;
-
         //return view('projects.show')->with('project', $single_project);
-        return view('projects.show', compact('project', 'allTasks', 'doneTasks', 'projectProgress'));
+        return view('projects.show', compact('project', 'allTasks', 'doneTasks'));
     }
 
     /**

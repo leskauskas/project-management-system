@@ -32,7 +32,7 @@ class DashboardController extends Controller
 
         $projects = $user->projects;
         $checklists = $user->checklists;
-        
+
         //return view('dashboard')->with('projects', $user->projects);
         return view('dashboard')->with(compact('projects', 'checklists'));
     }

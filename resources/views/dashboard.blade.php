@@ -42,7 +42,9 @@
                         <li class="list-group-item">
                             <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>
                             <h6><b>Created at: </b>{{$proj->created_at}} {{$proj->user->name}}</h6>
-                            
+                            <div class="progress" style="height: 5px">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; height: 5px"></div>
+                            </div>
                         </li>
                     @endforeach
                 </ul>

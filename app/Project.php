@@ -21,4 +21,17 @@ class Project extends Model
     public function questions(){
         return $this->hasMany('App\Question');
     }
+
+    public function getProjectProgress(){
+        $allTasks = $this->tasks()->count();
+        $doneTasks = $this->tasks()->where('status', '=', 'done')->count();
+        
+        if($allTasks == 0){
+            return 0;
+        }
+        else{
+            $projectProgress = ($doneTasks/$allTasks)*100;
+            return $projectProgress;
+        }
+    }
 }
