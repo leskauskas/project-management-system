@@ -86,7 +86,58 @@
                 @endforeach 
             </div>
             <div class="col-6">
-            <h5>Notes</h5>
+                <h5>Questions 
+                    {{-- new question button --}}
+                    <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#newQuestionModal">+</button>
+                </h5>
+
+                <!-- new question modal -->
+                <div class="modal fade" id="newQuestionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New question</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            {!! Form::open(['action' => 'QuestionsController@store', 'method' => 'POST']) !!}
+                                <div class="form-group">
+                                    {{ Form::text('question_title', '', ['class' => 'form-control', 'placeholder' => 'What is your question?'])}}
+                                    {{ Form::hidden('project_id', $project->id) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::hidden('is_answered', '0', ['class' => 'form-control']) }}
+                                </div>
+                                {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                @foreach ($questions as $quest)
+                <p>{{$quest->question_title}} <b>{{$quest->is_answered}}</b> 
+                    {!! Form::model($quest, [
+                        'method' => 'PATCH',
+                        'route' => ['questions.update', $quest->id]
+                    ]) !!}
+
+                    @if ($quest->is_answered == 0)
+                        <div class="form-group"> 
+                            {{ Form::hidden('is_answered', '1', ['class' => 'form-control'])}}
+                        </div>
+                        {{ Form::submit('Answered', ['class' => 'btn btn-success'])}}                                                     
+                    @else
+                        <div class="form-group"> 
+                            {{ Form::hidden('is_answered', '0', ['class' => 'form-control'])}}
+                        </div>
+                        {{ Form::submit('Not answered', ['class' => 'btn btn-success'])}}                            
+                    @endif
+                    {!! Form::close() !!}
+                </p>
+                @endforeach
             </div>
         </div>
     </div>

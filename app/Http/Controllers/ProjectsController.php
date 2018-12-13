@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Project;
 use App\Task;
+use App\Question;
 
 class ProjectsController extends Controller
 {
@@ -27,6 +28,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->paginate(5);
+
         return view('projects.index')->with('projects', $projects);
     }
 
@@ -74,6 +76,7 @@ class ProjectsController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
+        $questions = Question::all();
         $allTasks = Task::where('project_id', '=', $id)->count();
         $doneTasks = Task::where([
             ['status','=','done'],
@@ -81,7 +84,7 @@ class ProjectsController extends Controller
             ])->count();
 
         //return view('projects.show')->with('project', $single_project);
-        return view('projects.show', compact('project', 'allTasks', 'doneTasks'));
+        return view('projects.show', compact('project', 'allTasks', 'doneTasks', 'questions'));
     }
 
     /**

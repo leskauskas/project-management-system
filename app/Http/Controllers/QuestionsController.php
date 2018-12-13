@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
 class QuestionsController extends Controller
 {
@@ -34,7 +35,19 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'question_title' => 'required',
+            'is_answered' => 'required'
+        ]);
+
+        $project_id = $request->input('project_id');
+        $question = new Question;
+        $question->question_title = $request->input('question_title');
+        $question->is_answered = $request->input('is_answered');
+        $question->project_id = $project_id;
+        $question->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +81,17 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $this->validate($request, [
+            'is_answered' => 'required'
+        ]);
+
+        $input = $request->all();
+
+        $question->fill($input)->save();
+
+        return redirect()->back();
     }
 
     /**

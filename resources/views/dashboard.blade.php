@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-8">
             <h5>Projects
-                    <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#newProjModal">+</button>
+                <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#newProjModal">+</button>
             </h5>
             @if (count($projects) > 0)
                 <ul class="list-group mt-3">
@@ -67,38 +67,30 @@
                 </div>
                 {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
             {!! Form::close() !!}
-         
-                @foreach ($checklists as $c)
-                    <div class="card">
-                        <h5>{{$c->checklist_title}}</h5>
-                        {{$c->is_done}}
 
+                @foreach ($checklists as $c)
+                    <p>{{$c->checklist_title}} <b>{{$c->is_done}}</b>
                         {!! Form::model($c, [
                             'method' => 'PATCH',
                             'route' => ['checklists.update', $c->id]
                         ]) !!}
-            
+
                         @if ($c->is_done == 0)
                             <div class="form-group"> 
                                 {{ Form::hidden('is_done', '1', ['class' => 'form-control'])}}
                             </div>
-                            {{ Form::submit('Done', ['class' => 'btn btn-success'])}}
+                            {{ Form::submit('Done', ['class' => 'btn btn-success'])}}                                                     
                         @else
                             <div class="form-group"> 
                                 {{ Form::hidden('is_done', '0', ['class' => 'form-control'])}}
                             </div>
-                            {{ Form::submit('Not Done', ['class' => 'btn btn-danger'])}}
+                            {{ Form::submit('Not done', ['class' => 'btn btn-success'])}}                            
                         @endif
                         {!! Form::close() !!}
-                    </div>
-                @endforeach    
-        
+                    </p>
+                @endforeach
+                
         </div>
     </div>
-        
-
-        
-
-
 </div>
 @endsection
