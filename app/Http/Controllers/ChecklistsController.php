@@ -76,7 +76,11 @@ class ChecklistsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $checklist = Checklist::findOrFail($id);
+        $input = $request->all();
+        $checklist->fill($input)->save();
+        
+        return redirect()->back();
     }
 
     /**

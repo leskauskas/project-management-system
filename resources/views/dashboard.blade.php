@@ -69,9 +69,28 @@
             {!! Form::close() !!}
          
                 @foreach ($checklists as $c)
-                    <li class="list-group-item">
-                        {{$c->checklist_title}}
-                    </li>
+                    <div class="card">
+                        <h5>{{$c->checklist_title}}</h5>
+                        {{$c->is_done}}
+
+                        {!! Form::model($c, [
+                            'method' => 'PATCH',
+                            'route' => ['checklists.update', $c->id]
+                        ]) !!}
+            
+                        @if ($c->is_done == 0)
+                            <div class="form-group"> 
+                                {{ Form::hidden('is_done', '1', ['class' => 'form-control'])}}
+                            </div>
+                            {{ Form::submit('Done', ['class' => 'btn btn-success'])}}
+                        @else
+                            <div class="form-group"> 
+                                {{ Form::hidden('is_done', '0', ['class' => 'form-control'])}}
+                            </div>
+                            {{ Form::submit('Not Done', ['class' => 'btn btn-danger'])}}
+                        @endif
+                        {!! Form::close() !!}
+                    </div>
                 @endforeach    
         
         </div>
