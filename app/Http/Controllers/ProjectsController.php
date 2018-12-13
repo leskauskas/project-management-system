@@ -50,13 +50,15 @@ class ProjectsController extends Controller
     {
         $this->validate($request, [
             'project' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'due_date' => 'required'
         ]);
 
         $project = new Project;
         $project->name = $request->input('project');
         $project->description = $request->input('description');
         $project->priority = $request->input('priority');
+        $project->due_date = $request->input('due_date');
         $project->user_id = auth()->user()->id;
         $project->save();
 

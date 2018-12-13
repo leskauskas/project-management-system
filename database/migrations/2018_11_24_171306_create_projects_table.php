@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->mediumText('description');
             $table->string('priority');
+            $table->timestamp('due_date');
             $table->timestamps();
         });
     }

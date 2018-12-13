@@ -21,6 +21,10 @@
                             {{ Form::textarea('description', '', ['class' => 'form-control', 'placeholder' => 'Description'])}}
                         </div>
                         <div class="form-group">
+                            {{ Form::label('due_date', 'Due')}}
+                            {{ Form::date('due_date', \Carbon\Carbon::now(), ['class' => 'form-control', 'placeholder' => 'Due date'])}}
+                        </div>
+                        <div class="form-group">
                             {{ Form::label('priority', 'Priority')}}
                             {{ Form::select('priority', ['high' => 'High', 'medium' => 'Medium', 'small' => 'Small'], 'S', ['class' => 'form-control']) }}
                         </div>
@@ -41,7 +45,7 @@
                     @foreach ($projects as $proj)
                         <li class="list-group-item">
                             <h5><a href="/projects/{{$proj->id}}">{{$proj->name}}</a></h5>
-                            <h6><b>Created at: </b>{{$proj->created_at}} {{$proj->user->name}}</h6>
+                            <h6><b>Due: </b>{{$proj->due_date}}</h6>
                             <div class="progress" style="height: 5px">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; height: 5px"></div>
                             </div>
