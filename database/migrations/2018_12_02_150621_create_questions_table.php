@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('question_title');
-            $table->tinyInteger('is_answered');
+            $table->string('answer')->nullable();
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')
                 ->references('id')

@@ -108,7 +108,7 @@
                                     {{ Form::hidden('project_id', $project->id) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::hidden('is_answered', '0', ['class' => 'form-control']) }}
+                                    {{ Form::hidden('answer', '', ['class' => 'form-control']) }}
                                 </div>
                                 {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                             {!! Form::close() !!}
@@ -118,25 +118,44 @@
                 </div>
 
                 @foreach ($questions as $quest)
-                <p>{{$quest->question_title}} <b>{{$quest->is_answered}}</b> 
-                    {!! Form::model($quest, [
-                        'method' => 'PATCH',
-                        'route' => ['questions.update', $quest->id]
-                    ]) !!}
+                    <div class="card">
+                        <p>{{$quest->question_title}}</p>
+                        <p>{{$quest->answer}}</p>
 
-                    @if ($quest->is_answered == 0)
-                        <div class="form-group"> 
-                            {{ Form::hidden('is_answered', '1', ['class' => 'form-control'])}}
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#answerModal-{{ $loop->iteration }}">Answer</button>
+                        
+                        <!-- answer modal -->
+                        <div class="modal fade" id="answerModal-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New question</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {!! Form::model($quest, [
+                                            'method' => 'PATCH',
+                                            'route' => ['questions.update', $quest->id]
+                                        ]) !!}
+
+                                        <div class="form-group">
+                                            {{ Form::label('question_title', 'Question') }}
+                                            {{ Form::text('question_title', $quest->question_title, ['class' => 'form-control'])}}
+                                        </div>
+                
+                                        <div class="form-group"> 
+                                            {{ Form::text('answer', $quest->answer, ['class' => 'form-control', 'placeholder' => 'Answer to the question'])}}
+                                        </div>
+                                        {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}                                                     
+                                            
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        {{ Form::submit('Answered', ['class' => 'btn btn-success'])}}                                                     
-                    @else
-                        <div class="form-group"> 
-                            {{ Form::hidden('is_answered', '0', ['class' => 'form-control'])}}
-                        </div>
-                        {{ Form::submit('Not answered', ['class' => 'btn btn-success'])}}                            
-                    @endif
-                    {!! Form::close() !!}
-                </p>
+                    </div>
                 @endforeach
             </div>
         </div>

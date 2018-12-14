@@ -37,13 +37,12 @@ class QuestionsController extends Controller
     {
         $this->validate($request, [
             'question_title' => 'required',
-            'is_answered' => 'required'
         ]);
 
         $project_id = $request->input('project_id');
         $question = new Question;
         $question->question_title = $request->input('question_title');
-        $question->is_answered = $request->input('is_answered');
+        $question->answer = $request->input('answer');
         $question->project_id = $project_id;
         $question->save();
 
@@ -82,18 +81,12 @@ class QuestionsController extends Controller
     public function update(Request $request, $id)
     {
         $question = Question::findOrFail($id);
-
-        $this->validate($request, [
-            'is_answered' => 'required'
-        ]);
-
         $input = $request->all();
-
         $question->fill($input)->save();
 
         return redirect()->back();
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
