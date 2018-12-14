@@ -10526,5 +10526,7 @@ main {
   background: #fff;
   -webkit-box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
           box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
+  border-radius: 0;
+  padding: 0.25rem;
 }
 

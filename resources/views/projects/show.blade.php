@@ -157,6 +157,11 @@
                         </div>
                     </div>
                 @endforeach
+                <button type="button" class="btn btn-primary mt-4">Add a note</button>
+
+                <div class="globalCard">
+                    <p>some text</p>
+                </div>
             </div>
         </div>
     </div>
