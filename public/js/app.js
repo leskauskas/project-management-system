@@ -13922,6 +13922,8 @@ var app = new Vue({
   el: '#app'
 });
 
+CKEDITOR.replace('article-ckeditor');
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {

@@ -8,6 +8,16 @@ use App\Note;
 
 class NotesController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +46,13 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
+        $project_id = $request->input('project_id');
+        $note = new Note;
+        $note->note_content = $request->input('note_content');
+        $note->project_id = $project_id;
+        $note->save();
 
+        return redirect()->back();
     }
 
     /**
@@ -58,7 +74,8 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        return view('notes.edit')->with('note', $note);        
     }
 
     /**
@@ -70,7 +87,12 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $note = Note::findOrFail($id);
+        $input = $request->all();
+        $note->fill($input)->save();
+
+        //return redirect()->back();
+        return redirect('projects/' . $request->project_id);
     }
 
     /**

@@ -117,7 +117,7 @@
                     </div>
                 </div>
 
-                @foreach ($questions as $quest)
+                @foreach ($project->questions as $quest)
                     <div class="card">
                         <p>{{$quest->question_title}}</p>
                         <p>{{$quest->answer}}</p>
@@ -157,11 +157,42 @@
                         </div>
                     </div>
                 @endforeach
-                <button type="button" class="btn btn-primary mt-4">Add a note</button>
 
-                <div class="globalCard">
-                    <p>some text</p>
+                @if (count($project->notes) == 0)
+                    <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#noteModal">Add a note</button>
+                @endif
+                
+                <!-- note modal -->
+                <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Note</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                {!! Form::open(['action' => 'NotesController@store', 'method' => 'POST']) !!}
+                                    <div class="form-group">
+                                        {{ Form::textarea('note_content', '', ['id' => 'article-ckeditor', 'class' => 'form-control'])}}
+                                        {{ Form::hidden('project_id', $project->id) }}
+                                    </div>
+                                    
+                                    {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                @foreach ($project->notes as $n)
+                    <div class="globalCard">
+                        <a href="/notes/{{$n->id}}/edit" class="btn btn-primary">Edit</a>
+                        <p>{!! $n->note_content !!}</p>
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </div>
