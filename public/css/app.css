@@ -93,14 +93,6 @@
           justify-content: space-between;
 }
 
-.mainProjectPage .projectInfo {
-  min-height: 170px;
-}
-
-.mainProjectPage .projectTasks {
-  min-height: 170px;
-}
-
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
