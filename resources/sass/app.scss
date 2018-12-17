@@ -29,3 +29,18 @@ main{
     border-radius: 0;
     padding: 1rem;
 }
+
+.progress{
+    .progress-bar{
+        background: $accent-color;
+    }
+}
+
+.btn-primary{
+    background: $accent-color;
+    border-color: $accent-color;
+    &:hover{
+        background: $accent-color-dark;
+        border-color: $accent-color-dark;
+    }
+}

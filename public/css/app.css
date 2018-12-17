@@ -10573,3 +10573,17 @@ main {
   padding: 1rem;
 }
 
+.progress .progress-bar {
+  background: #1ab997;
+}
+
+.btn-primary {
+  background: #1ab997;
+  border-color: #1ab997;
+}
+
+.btn-primary:hover {
+  background: #18a385;
+  border-color: #18a385;
+}
+

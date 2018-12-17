@@ -34,9 +34,7 @@
 @else
 <header>
     <nav id="side-nav">
-        <a href="/dashboard"><i class="fas fa-home" title="Dashboard"></i></a>
-        <a href="#"><i class="fas fa-columns" title="Kanban Board"></i></a>
-        <a href="#"><i class="fas fa-chart-line" title="Analytics"></i></a>
+        <a href="/dashboard">dashboard</a>
     </nav>
     <nav id="top-nav">
         <div class="right-items">

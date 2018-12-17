@@ -7,7 +7,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">New project</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -38,11 +38,10 @@
     <div class="row">
 
         <div class="col-8 dashboardProjectsColumn">
-            <h5>Projects
-                <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#newProjModal">+</button>
-            </h5>
-            @if (count($projects) > 0)
-                
+            <h3 class="my-4">My projects
+                <button type="button" class="btn btn-primary btn-sm ml-1" data-toggle="modal" data-target="#newProjModal">Add new project</button>
+            </h3>
+            @if (count($projects) > 0)   
                 @foreach ($projects as $proj)
                     <a href="/projects/{{$proj->id}}">
                         <div class="globalCard projectCard mb-2">
@@ -56,8 +55,7 @@
                             </div>
                         </div>   
                     </a>
-                @endforeach
-                
+                @endforeach  
             @else
                 <p>No projects yet</p>
             @endif 
