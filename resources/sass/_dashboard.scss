@@ -1,0 +1,40 @@
+.dashboardProjectsColumn{
+    a:link {
+        text-decoration: none;
+        color: $main-font-color;
+    }   
+    a:visited {
+        text-decoration: none;
+        color: $main-font-color;
+    }   
+    a:hover {
+        text-decoration: none;
+        color: $main-font-color;
+    }  
+    a:active {
+        text-decoration: none;
+        color: $main-font-color;
+    }
+    .projectCard {
+        @at-root #{&}-title {
+            display: flex;
+            display: -webkit-box;
+            display: -webkit-flex;
+            justify-content: space-between;
+            .globalBadge{
+                background: $accent-color;
+                color: #fff;
+                border-radius: 3px;
+                padding: 6px;
+                line-height: 1;
+            }
+        }
+        @at-root #{&}-dueDate {
+        }
+        @at-root #{&}-progress {
+        }
+        &:hover{
+            box-shadow: $box-shadow;
+        }
+    }
+}
