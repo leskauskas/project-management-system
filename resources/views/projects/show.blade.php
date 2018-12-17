@@ -11,7 +11,6 @@
 
         <div class="row">
             <div class="col-7">
-
                 <div class="projectInfo globalCard mb-2">
                     <h1>{{$project->name}} </h1>
                     <p>{{$project->description}}</p>
@@ -20,7 +19,6 @@
                         <div class="progress-bar" role="progressbar" aria-valuenow="{{$project->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$project->getProjectProgress()}}%; height: 5px"></div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-12">
                         <div class="projectTasks">
@@ -88,7 +86,6 @@
                         @endforeach 
                     </div>
                 </div>
-
             </div>
             <div class="col-5">
                 <div class="projectQuestions globalCard mb-2">
@@ -122,7 +119,6 @@
                         </div>
                     </div>
                 </div>
-
                 @foreach ($project->questions as $quest)
                     <div class="globalCard mb-2" style="display: flex; justify-content: space-between">
                       
