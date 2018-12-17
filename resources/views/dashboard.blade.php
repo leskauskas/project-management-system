@@ -62,7 +62,7 @@
         </div>
 
         <div class="col-4 dashboardCheckColumn">
-            <h3 class="my-4">My personal checklist</h3>
+            <h3 class="my-4"><i class="fas fa-list --accentColor"></i> My personal checklist</h3>
             {!! Form::open(['action' => 'ChecklistsController@store', 'method' => 'POST']) !!}
                 <div class="form-group">
                     {{ Form::text('checklist_title', '', ['class' => 'form-control globalInput', 'placeholder' => 'Add your task here...'])}}
@@ -74,25 +74,31 @@
             {!! Form::close() !!}
 
                 @foreach ($checklists as $c)
-                    <p>{{$c->checklist_title}} <b>{{$c->is_done}}</b>
-                        {!! Form::model($c, [
-                            'method' => 'PATCH',
-                            'route' => ['checklists.update', $c->id]
-                        ]) !!}
 
-                        @if ($c->is_done == 0)
-                            <div class="form-group"> 
-                                {{ Form::hidden('is_done', '1', ['class' => 'form-control'])}}
-                            </div>
-                            {{ Form::submit('Done', ['class' => 'btn btn-success'])}}                                                     
-                        @else
-                            <div class="form-group"> 
-                                {{ Form::hidden('is_done', '0', ['class' => 'form-control'])}}
-                            </div>
-                            {{ Form::submit('Not done', ['class' => 'btn btn-success'])}}                            
-                        @endif
-                        {!! Form::close() !!}
-                    </p>
+                    <div class="globalCard mb-2">
+                        <div class="checklistHolder">
+                            <p class="m-0">{{$c->checklist_title}} {{$c->is_done}}</p>
+                            {!! Form::model($c, [
+                                'method' => 'PATCH',
+                                'route' => ['checklists.update', $c->id]
+                            ]) !!}
+    
+                            @if ($c->is_done == 0)
+                                <div class="form-group mb-0"> 
+                                    {{ Form::hidden('is_done', '1', ['class' => 'form-control'])}}
+                                </div>
+                                {{ Form::submit('Done', ['class' => 'btn btn-global btn-sm'])}}                                                     
+                            @else
+                                <div class="form-group mb-0"> 
+                                    {{ Form::hidden('is_done', '0', ['class' => 'form-control'])}}
+                                </div>
+                                {{ Form::submit('Not done', ['class' => 'btn btn-global btn-sm'])}}                            
+                            @endif
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    
+                    
                 @endforeach
                 
         </div>

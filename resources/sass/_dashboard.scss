@@ -38,3 +38,10 @@
         }
     }
 }
+
+.dashboardCheckColumn{
+    .checklistHolder{
+        display: flex;
+        justify-content: space-between;
+    }
+}

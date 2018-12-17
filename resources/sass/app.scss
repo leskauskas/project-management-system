@@ -51,4 +51,8 @@ main{
     border-bottom: 2px solid $accent-color-dark;
     background: rgba(0, 0, 0, 0);
     border-radius: 0;
-  }
+}
+
+.--accentColor{
+    color: $accent-color-dark;
+}
