@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             {{ Form::label('priority', 'Priority')}}
-                            {{ Form::select('priority', ['high' => 'High', 'medium' => 'Medium', 'small' => 'Small'], 'S', ['class' => 'form-control']) }}
+                            {{ Form::select('priority', ['High priority' => 'High', 'Medium priority' => 'Medium', 'Small priority' => 'Small'], 'S', ['class' => 'form-control']) }}
                         </div>
                         {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                     {!! Form::close() !!}
@@ -39,7 +39,7 @@
 
         <div class="col-8 dashboardProjectsColumn">
             <h3 class="my-4">My projects
-                <button type="button" class="btn btn-primary btn-sm ml-1" data-toggle="modal" data-target="#newProjModal">Add new project</button>
+                <button type="button" class="btn btn-global btn-sm ml-1" data-toggle="modal" data-target="#newProjModal">Add new project</button>
             </h3>
             @if (count($projects) > 0)   
                 @foreach ($projects as $proj)
@@ -62,15 +62,15 @@
         </div>
 
         <div class="col-4 dashboardCheckColumn">
-            <h5>My personal checklist</h5>
+            <h3 class="my-4">My personal checklist</h3>
             {!! Form::open(['action' => 'ChecklistsController@store', 'method' => 'POST']) !!}
                 <div class="form-group">
-                    {{ Form::text('checklist_title', '', ['class' => 'form-control', 'placeholder' => 'title'])}}
+                    {{ Form::text('checklist_title', '', ['class' => 'form-control globalInput', 'placeholder' => 'Add your task here...'])}}
                 </div>
                 <div class="form-group">
                     {{ Form::hidden('is_done', '0', ['class' => 'form-control']) }}
                 </div>
-                {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                {{-- {{ Form::submit('Submit', ['class' => 'btn btn-global btn-sm'])}} --}}
             {!! Form::close() !!}
 
                 @foreach ($checklists as $c)

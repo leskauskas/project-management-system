@@ -10577,13 +10577,21 @@ main {
   background: #1ab997;
 }
 
-.btn-primary {
+.btn-global {
   background: #1ab997;
   border-color: #1ab997;
+  color: #fff;
 }
 
-.btn-primary:hover {
+.btn-global:hover {
   background: #18a385;
   border-color: #18a385;
+}
+
+.globalInput {
+  border: none;
+  border-bottom: 2px solid #18a385;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 0;
 }
 
