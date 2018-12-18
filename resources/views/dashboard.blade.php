@@ -28,7 +28,7 @@
                             {{ Form::label('priority', 'Priority')}}
                             {{ Form::select('priority', ['High priority' => 'High', 'Medium priority' => 'Medium', 'Small priority' => 'Small'], 'S', ['class' => 'form-control']) }}
                         </div>
-                        {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                        {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}
                     {!! Form::close() !!}
                 </div>
             </div>

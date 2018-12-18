@@ -75,7 +75,7 @@
                                                 {{ Form::label('due_date', 'Due')}}
                                                 {{ Form::text('due_date', $proj_task->due_date, ['class' => 'form-control', 'placeholder' => 'Due date'])}}
                                             </div>
-                                            {{ Form::submit('Update', ['class' => 'btn btn-primary'])}}
+                                            {{ Form::submit('Update', ['class' => 'btn btn-global'])}}
                                             {!! Form::close() !!}
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                         <div class="form-group">
                                             {{ Form::hidden('answer', '', ['class' => 'form-control']) }}
                                         </div>
-                                        {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                                        {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}
                                     {!! Form::close() !!}
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">New question</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Answer/Edit question</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -154,7 +154,7 @@
                                         <div class="form-group"> 
                                             {{ Form::text('answer', $quest->answer, ['class' => 'form-control', 'placeholder' => 'Answer to the question'])}}
                                         </div>
-                                        {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}                                                     
+                                        {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}                                                     
                                             
                                         {!! Form::close() !!}
                                     </div>
@@ -194,7 +194,7 @@
                                             {{ Form::hidden('project_id', $project->id) }}
                                         </div>
                                         
-                                        {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                                        {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}
                                     {!! Form::close() !!}
                                 </div>
                             </div>

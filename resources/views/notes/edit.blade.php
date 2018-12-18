@@ -8,7 +8,7 @@
                 {{ Form::hidden('project_id', $note->project_id) }}
             </div>
             {{ Form::hidden('_method', 'PUT')}}
-            {{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+            {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}
         {!! Form::close() !!}
     </div>
 @endsection
