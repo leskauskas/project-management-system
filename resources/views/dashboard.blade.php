@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             {{ Form::label('priority', 'Priority')}}
-                            {{ Form::select('priority', ['High priority' => 'High', 'Medium priority' => 'Medium', 'Small priority' => 'Small'], 'S', ['class' => 'form-control']) }}
+                            {{ Form::select('priority', ['High priority' => 'High', 'Medium priority' => 'Medium', 'Low priority' => 'Low'], 'S', ['class' => 'form-control']) }}
                         </div>
                         {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}
                     {!! Form::close() !!}
@@ -47,7 +47,8 @@
                         <div class="globalCard projectCard mb-2">
                             <div class="projectCard-title">
                                 <h5>{{$proj->name}}</h5>
-                            <span class="globalBadge">{{$proj->priority}}</span>
+                            {{-- <span class="globalBadge">{{$proj->priority}}</span> --}}
+                            <priority-component priority="{{$proj->priority}}"></priority-component>
                             </div> 
                             <p><b>Due date: </b>{{$proj->due_date}}</p>
                             <div class="progress" style="height: 5px">
