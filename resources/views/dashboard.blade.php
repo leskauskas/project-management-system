@@ -47,7 +47,6 @@
                         <div class="globalCard projectCard mb-2">
                             <div class="projectCard-title">
                                 <h5>{{$proj->name}}</h5>
-                            {{-- <span class="globalBadge">{{$proj->priority}}</span> --}}
                             <priority-component priority="{{$proj->priority}}"></priority-component>
                             </div> 
                             <p><b>Due date: </b>{{$proj->due_date}}</p>

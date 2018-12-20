@@ -42,7 +42,9 @@
                                 <div class="d-flex justify-content-between">
                                     <b class="task-name">{{$proj_task->task_name}}</b>
                                     <div>
-                                        <span class="badge badge-danger task-status">{{$proj_task->status}}</span>
+                                        {{-- <span class="badge badge-danger task-status">{{$proj_task->status}}</span> --}}
+                                        <status-component status="{{$proj_task->status}}"></status-component>
+
                                     </div>
                                 </div>
                                 <span class="badge badge-danger task-due"><i class="far fa-clock"></i> {{$proj_task->due_date}}</span>
