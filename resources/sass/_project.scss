@@ -2,9 +2,22 @@
     .projectInfo{
     }
     .projectTasks{
+        .task {
+            border-left: 3px solid $accent-color;
+            cursor: pointer;
+            @at-root #{&}-name {
+            }
+            @at-root #{&}-status {
+                padding: 4px 5px;
+            }
+            @at-root #{&}-due {
+            }
+            &:hover{
+                box-shadow: $box-shadow;
+            }
+        }
     }
-    .projectTasks{
-    }
+    
     .projectQuestions{     
     }
     .projectNotes{

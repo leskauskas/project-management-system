@@ -93,6 +93,20 @@
           justify-content: space-between;
 }
 
+.mainProjectPage .projectTasks .task {
+  border-left: 3px solid #1ab997;
+  cursor: pointer;
+}
+
+.mainProjectPage .projectTasks .task-status {
+  padding: 4px 5px;
+}
+
+.mainProjectPage .projectTasks .task:hover {
+  -webkit-box-shadow: 1px 1px 18px -3px #b8b8b8;
+          box-shadow: 1px 1px 18px -3px #b8b8b8;
+}
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -10595,6 +10609,11 @@ main {
 .btn-global:hover {
   background: #18a385;
   border-color: #18a385;
+}
+
+.badge-global {
+  background: #1ab997;
+  color: #fff;
 }
 
 .globalInput {

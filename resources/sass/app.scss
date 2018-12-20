@@ -47,6 +47,11 @@ main{
     }
 }
 
+.badge-global{
+    background: $accent-color;
+    color: #fff;
+}
+
 .globalInput{
     border: none;
     border-bottom: 2px solid $accent-color-dark;

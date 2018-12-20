@@ -20,8 +20,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="projectTasks">
+                    <div class="col-12 projectTasks">
+                        <div>
                             {!! Form::open(['action' => 'TasksController@store', 'method' => 'POST']) !!}
                                 <div class="form-group">
                                     {{ Form::text('task_name', '', ['class' => 'form-control globalInput', 'placeholder' => 'Task name'])}}
@@ -38,52 +38,50 @@
                         </div>
                         <hr>
                         @foreach ($project->tasks as $proj_task)
-                            <div class="globalCard p-1 mt-1 " style="border-left: 3px solid #3490dc; border-radius: 0;">
-                                <div class="col-9">
-                                    <h6><b>{{$proj_task->task_name}}</b><span class="badge badge-danger ml-1">{{$proj_task->status}}</span></h6>
-                                    <h6><b>Due: </b>{{$proj_task->due_date}}</h6>
-                                </div>
-                                <div class="col-3">
-                                    <a data-toggle="modal" data-target="#exampleModalLong-{{ $loop->iteration }}"><i class="far fa-edit"></i></a>
-                                    <a><i class="far fa-trash-alt"></i></a>
-                                </div>
-                                    
-                                <!-- Edit task modal -->
-                                <div class="modal fade" id="exampleModalLong-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">{{$proj_task->task_name}}</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            {!! Form::model($proj_task, [
-                                                'method' => 'PATCH',
-                                                'route' => ['tasks.update', $proj_task->id]
-                                            ]) !!}
-                                    
-                                            <div class="form-group">
-                                                {{ Form::label('task_name', 'Task name')}}
-                                                {{ Form::text('task_name', $proj_task->task_name, ['class' => 'form-control', 'placeholder' => 'Task name'])}}
-                                            </div>
-                                            <div class="form-group">
-                                                {{ Form::select('status', ['not started' => 'Not Started', 'in progress' => 'In progress', 'done' => 'Done'], $proj_task->status, ['class' => 'form-control']) }}
-                                            </div>
-                                            <div class="form-group">
-                                                {{ Form::label('due_date', 'Due')}}
-                                                {{ Form::text('due_date', $proj_task->due_date, ['class' => 'form-control', 'placeholder' => 'Due date'])}}
-                                            </div>
-                                            {{ Form::submit('Update', ['class' => 'btn btn-global'])}}
-                                            {!! Form::close() !!}
-                                        </div>
-                                    </div>
+                            <div class="globalCard task p-2 mt-2" data-toggle="modal" data-target="#exampleModalLong-{{ $loop->iteration }}">
+                                <div class="d-flex justify-content-between">
+                                    <b class="task-name">{{$proj_task->task_name}}</b>
+                                    <div>
+                                        <span class="badge badge-danger task-status">{{$proj_task->status}}</span>
                                     </div>
                                 </div>
-
+                                <span class="badge badge-danger task-due"><i class="far fa-clock"></i> {{$proj_task->due_date}}</span>
+                            </div>
+                            <!-- Edit task modal -->
+                            <div class="modal fade" id="exampleModalLong-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">{{$proj_task->task_name}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {!! Form::model($proj_task, [
+                                            'method' => 'PATCH',
+                                            'route' => ['tasks.update', $proj_task->id]
+                                        ]) !!}
+                                
+                                        <div class="form-group">
+                                            {{ Form::label('task_name', 'Task name')}}
+                                            {{ Form::text('task_name', $proj_task->task_name, ['class' => 'form-control', 'placeholder' => 'Task name'])}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::select('status', ['not started' => 'Not Started', 'in progress' => 'In progress', 'done' => 'Done'], $proj_task->status, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('due_date', 'Due')}}
+                                            {{ Form::text('due_date', $proj_task->due_date, ['class' => 'form-control', 'placeholder' => 'Due date'])}}
+                                        </div>
+                                        {{ Form::submit('Update', ['class' => 'btn btn-global'])}}
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         @endforeach 
+
                     </div>
                 </div>
             </div>
