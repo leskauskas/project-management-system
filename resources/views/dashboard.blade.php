@@ -47,7 +47,7 @@
                         <div class="globalCard projectCard mb-2">
                             <div class="projectCard-title">
                                 <h5>{{$proj->name}}</h5>
-                            <priority-component priority="{{$proj->priority}}"></priority-component>
+                                <priority-component priority="{{$proj->priority}}"></priority-component>
                             </div> 
                             <p><b>Due date: </b>{{$proj->due_date}}</p>
                             <div class="progress" style="height: 5px">
@@ -77,7 +77,7 @@
 
                     <div class="globalCard mb-2">
                         <div class="checklistHolder">
-                            <p class="m-0">{{$c->checklist_title}} {{$c->is_done}}</p>
+                            <global-status-component taskname="{{$c->checklist_title}}" status="{{$c->is_done}}"></global-status-component>
                             {!! Form::model($c, [
                                 'method' => 'PATCH',
                                 'route' => ['checklists.update', $c->id]
@@ -87,12 +87,12 @@
                                 <div class="form-group mb-0"> 
                                     {{ Form::hidden('is_done', '1', ['class' => 'form-control'])}}
                                 </div>
-                                {{ Form::submit('Done', ['class' => 'btn btn-global btn-sm'])}}                                                     
+                                <button type="submit" class="btn btn-global btn-sm"><i class="fas fa-check"></i></button>
                             @else
                                 <div class="form-group mb-0"> 
                                     {{ Form::hidden('is_done', '0', ['class' => 'form-control'])}}
                                 </div>
-                                {{ Form::submit('Not done', ['class' => 'btn btn-global btn-sm'])}}                            
+                                <button type="submit" class="btn btn-global btn-sm" style="padding: 0.25rem 0.65rem"><i class="fas fa-times"></i></button>                           
                             @endif
                             {!! Form::close() !!}
                         </div>

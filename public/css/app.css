@@ -92,6 +92,10 @@
           justify-content: space-between;
 }
 
+.dashboardCheckColumn .checklistHolder p {
+  font-size: 1rem;
+}
+
 .mainProjectPage .projectTasks .task {
   border-left: 3px solid #1ab997;
   cursor: pointer;
