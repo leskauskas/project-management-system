@@ -15,6 +15,9 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 
 Route::resource('projects', 'ProjectsController');
+Route::get('/projects/{id}/kanban', ['as' => 'projects.kanban', 'uses' => 'ProjectsController@showKanban']);
+
+
 Route::resource('tasks', 'TasksController');
 Route::resource('checklists', 'ChecklistsController');
 Route::resource('questions', 'QuestionsController');

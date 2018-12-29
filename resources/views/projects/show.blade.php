@@ -9,6 +9,8 @@
             {{ Form::submit('Delete', ['class' => 'btn btn-danger'])}}
         {!! Form::close() !!} --}}
 
+        <a href="{{ route('projects.kanban', $project->id) }}" class="btn btn-xs btn-info pull-right">Edit</a>
+
         <div class="row">
             <div class="col-7">
                 <div class="projectInfo globalCard mb-2">
