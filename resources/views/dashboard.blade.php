@@ -62,7 +62,7 @@
         </div>
 
         <div class="col-4 dashboardCheckColumn">
-            <h3 class="my-4"><i class="fas fa-list --accentColor"></i> My personal checklist</h3>
+            <h3 class="my-4">My personal checklist</h3>
             {!! Form::open(['action' => 'ChecklistsController@store', 'method' => 'POST']) !!}
                 <div class="form-group">
                     {{ Form::text('checklist_title', '', ['class' => 'form-control globalInput', 'placeholder' => 'Add your task here...'])}}

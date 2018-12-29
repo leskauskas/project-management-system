@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style>     
     .globTaskDone{
         text-decoration: line-through;
     }
