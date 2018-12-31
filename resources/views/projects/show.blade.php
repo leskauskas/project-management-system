@@ -9,8 +9,6 @@
             {{ Form::submit('Delete', ['class' => 'btn btn-danger'])}}
         {!! Form::close() !!} --}}
 
-        <a href="{{ route('projects.kanban', $project->id) }}" class="btn btn-xs btn-info pull-right">Edit</a>
-
         <div class="row">
             <div class="col-7">
                 <div class="projectInfo globalCard mb-2">
@@ -39,6 +37,11 @@
                             {!! Form::close() !!}
                         </div>
                         <hr>
+                        <div class="d-flex justify-content-between">
+                            <p></p>
+                            <a href="{{ route('projects.kanban', $project->id) }}" class="btn btn-global btn-sm" title="View tasks in Kanban mode">Kanban</a>
+
+                        </div>
                         @foreach ($project->tasks as $proj_task)
                             <div class="globalCard task p-2 mt-2" data-toggle="modal" data-target="#exampleModalLong-{{ $loop->iteration }}">
                                 <div class="d-flex justify-content-between">
