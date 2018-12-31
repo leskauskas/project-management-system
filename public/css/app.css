@@ -115,6 +115,23 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.kanbanBoardContainer .column {
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.kanbanBoardContainer .notStarted .globalCard hr {
+  border-top: 3px solid #e3342f;
+}
+
+.kanbanBoardContainer .inProgress .globalCard hr {
+  border-top: 3px solid #ffed4a;
+}
+
+.kanbanBoardContainer .done .globalCard hr {
+  border-top: 3px solid #38c172;
+}
+
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
