@@ -113,6 +113,7 @@
 .kanbanBoardContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  height: 88vh;
 }
 
 .kanbanBoardContainer .column {
@@ -120,16 +121,21 @@
   padding: 0.5rem;
 }
 
-.kanbanBoardContainer .notStarted .globalCard hr {
-  border-top: 3px solid #e3342f;
+.kanbanBoardContainer .notStarted .globalCard {
+  border-left: 3px solid #e3342f;
 }
 
-.kanbanBoardContainer .inProgress .globalCard hr {
-  border-top: 3px solid #ffed4a;
+.kanbanBoardContainer .inProgress {
+  border-left: 1px solid #ece9e9;
+  border-right: 1px solid #ece9e9;
 }
 
-.kanbanBoardContainer .done .globalCard hr {
-  border-top: 3px solid #38c172;
+.kanbanBoardContainer .inProgress .globalCard {
+  border-left: 3px solid #ffed4a;
+}
+
+.kanbanBoardContainer .done .globalCard {
+  border-left: 3px solid #38c172;
 }
 
 /*!
