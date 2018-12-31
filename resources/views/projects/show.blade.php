@@ -37,6 +37,11 @@
                             {!! Form::close() !!}
                         </div>
                         <hr>
+                        <div class="d-flex justify-content-between">
+                            <p></p>
+                            <a href="{{ route('projects.kanban', $project->id) }}" class="btn btn-global btn-sm" title="View tasks in Kanban mode">Kanban</a>
+
+                        </div>
                         @foreach ($project->tasks as $proj_task)
                             <div class="globalCard task p-2 mt-2" data-toggle="modal" data-target="#exampleModalLong-{{ $loop->iteration }}">
                                 <div class="d-flex justify-content-between">

@@ -90,6 +90,23 @@ class ProjectsController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showKanban($id)
+    {
+        $project = Project::find($id);
+        $doneTasks = Task::where([
+            ['status','=','done'],
+            ['project_id', '=', $id]
+            ]);
+
+        return view('projects.kanban', compact('project', 'doneTasks'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

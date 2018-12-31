@@ -1,0 +1,26 @@
+.kanbanBoardContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 88vh;
+    .column{
+        height: 100%;
+        padding: 0.5rem;  
+    }
+    .notStarted{
+        .globalCard{
+            border-left: 3px solid $red;
+        }
+    }
+    .inProgress{
+        border-left: 1px solid #ece9e9;
+        border-right: 1px solid #ece9e9;
+        .globalCard{
+            border-left: 3px solid $yellow;
+        }
+    }
+    .done{
+        .globalCard{
+            border-left: 3px solid $green;
+        }
+    }
+}
