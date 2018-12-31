@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container kanbanBoardContainer">
+    <a href="{{ URL::previous() }}" class="btn btn-global btn-sm">Back</a>
 
+    <div class="container kanbanBoardContainer"> 
         <div class="column notStarted">
             <div class="columnHeader">
                 <h5 class="text-muted">Not Started</h5>
