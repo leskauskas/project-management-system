@@ -49,7 +49,7 @@
                                 <h5>{{$proj->name}}</h5>
                                 <priority-component priority="{{$proj->priority}}"></priority-component>
                             </div> 
-                            <p><b>Due date: </b>{{$proj->due_date}}</p>
+                            <p><b>Due date: </b>{{date('Y-m-d', strtotime($proj->due_date))}}</p>
                             <div class="progress" style="height: 5px">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; height: 5px"></div>
                             </div>
