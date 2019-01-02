@@ -47,12 +47,38 @@
                                 <div class="d-flex justify-content-between">
                                     <b class="task-name">{{$proj_task->task_name}}</b>
                                     <div>
-                                        {{-- <span class="badge badge-danger task-status">{{$proj_task->status}}</span> --}}
                                         <status-component status="{{$proj_task->status}}"></status-component>
-
                                     </div>
                                 </div>
-                                <span class="badge badge-danger task-due"><i class="far fa-clock"></i> {{$proj_task->due_date}}</span>
+                                {{-- <span class="badge badge-danger task-due"><i class="far fa-clock"></i> {{date('Y-m-d', strtotime($proj_task->due_date))}}</span> --}}
+                                @php
+                                    $today = date("Y-m-d");
+                                    $dueDate = date("Y-m-d", strtotime($proj_task->due_date));
+                                    $due = false;
+
+                                    $date1=date_create($today);
+                                    $date2=date_create($dueDate);
+                                    $diff=date_diff($date1,$date2);
+                            
+                                    if ((int)$diff->format("%r%a") >= 0 && (int)$diff->format("%r%a") <=5 ) {
+                                        $due = true;
+                                    }
+                                    
+                                @endphp
+                                
+                                <task-due duedate="{{date('Y-m-d', strtotime($proj_task->due_date))}}" isdue={{$due}}></task-due>
+                                <span class="badge task-due">
+                                    @php
+                                        if ((int)$diff->format("%r%a") < 0) {
+                                            echo 'Past deadline';
+                                        }
+                                        else{
+                                            echo $diff->format("%d days");
+                                        }
+                                    @endphp         
+                                </span>
+                                
+                                
                             </div>
                             <!-- Edit task modal -->
                             <div class="modal fade" id="exampleModalLong-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

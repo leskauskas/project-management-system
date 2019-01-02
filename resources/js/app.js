@@ -20,6 +20,7 @@ window.Vue = require('vue');
 Vue.component('priority-component', require('./components/Priority.vue'));
 Vue.component('status-component', require('./components/TaskStatus.vue'));
 Vue.component('global-status-component', require('./components/GlobalTaskStatus.vue'));
+Vue.component('task-due', require('./components/TaskDueDate.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
