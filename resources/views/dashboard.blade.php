@@ -99,7 +99,7 @@
 
                             {!! Form::open(['action' => ['ChecklistsController@destroy', $c->id], 'method' => 'POST']) !!}
                                 {{ Form::hidden('_method', 'DELETE')}}
-                                {{ Form::submit('Delete', ['class' => 'btn btn-danger btn-sm ml-2'])}}
+                                <button type="submit" class="btn btn-outline-danger btn-sm ml-2"><i class="fas fa-trash-alt"></i></button>
                             {!! Form::close() !!}
                             </div>
                         </div>
