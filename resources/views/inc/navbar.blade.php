@@ -38,12 +38,24 @@
     </nav>
     <nav id="top-nav">
         <div class="right-items">
-            <i class="userAvatar"></i><span> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
+
+            <user-avatar fname="{{ Auth::user()->name }}" lname="{{ Auth::user()->lastname }}"></user-avatar>
+          
+            <div class="dropdown">
+                
+                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
+                </a>
+                
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                </div>
+            </div>
+
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
