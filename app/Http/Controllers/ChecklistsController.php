@@ -91,6 +91,8 @@ class ChecklistsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $checklist = Checklist::find($id);
+        $checklist->delete();
+        return redirect('/dashboard')->with('success', 'Task deleted');
     }
 }

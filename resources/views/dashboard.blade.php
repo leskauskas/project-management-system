@@ -83,6 +83,7 @@
                                 'route' => ['checklists.update', $c->id]
                             ]) !!}
     
+                            <div class="d-flex">
                             @if ($c->is_done == 0)
                                 <div class="form-group mb-0"> 
                                     {{ Form::hidden('is_done', '1', ['class' => 'form-control'])}}
@@ -95,6 +96,12 @@
                                 <button type="submit" class="btn btn-global btn-sm" style="padding: 0.25rem 0.65rem"><i class="fas fa-times"></i></button>                           
                             @endif
                             {!! Form::close() !!}
+
+                            {!! Form::open(['action' => ['ChecklistsController@destroy', $c->id], 'method' => 'POST']) !!}
+                                {{ Form::hidden('_method', 'DELETE')}}
+                                {{ Form::submit('Delete', ['class' => 'btn btn-danger btn-sm ml-2'])}}
+                            {!! Form::close() !!}
+                            </div>
                         </div>
                     </div>
                     
