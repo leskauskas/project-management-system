@@ -27,3 +27,6 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index');
 Route::post('','TasksController@store');
 Route::post('/dashboard','ChecklistsController@store');
+
+Route::get('profile/{user}',  ['as' => 'profile.edit', 'uses' => 'ProfilesController@edit']);
+Route::patch('profile/{user}/update',  ['as' => 'profile.update', 'uses' => 'ProfilesController@update']);
