@@ -84,6 +84,8 @@ class ProfilesController extends Controller
         $user->name = request('name');
         $user->lastname = request('lastname');
         $user->email = request('email');
+        $user->about = request('about');
+        $user->location = request('location');
         //$user->password = bcrypt(request('password'));
 
         $user->save();
