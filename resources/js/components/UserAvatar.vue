@@ -40,7 +40,7 @@ props: ['fname', 'lname'],
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background: #1ab99785;
+        background: #1ab997;
         color: #fff;
         font-size: 15px;
     }

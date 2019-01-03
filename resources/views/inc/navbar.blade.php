@@ -34,32 +34,30 @@
 @else
 <header>
     <nav id="side-nav">
-        <a href="/dashboard">dashboard</a>
+        <div class="nav-logo d-flex">
+            <a href="/dashboard"><i class="fas fa-th-large fa-2x" title="Dashboard"></i></a>
+        </div>
     </nav>
     <nav id="top-nav">
-        <div class="right-items">
-
-            <user-avatar fname="{{ Auth::user()->name }}" lname="{{ Auth::user()->lastname }}"></user-avatar>
-          
-            <div class="dropdown">
-                
-                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
-                </a>
-                
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">Edit profile</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                </div>
+        <div class="nav-items">
+            <div class="nav-left d-flex" style="align-items: center">
+                <user-avatar fname="{{ Auth::user()->name }}" lname="{{ Auth::user()->lastname }}"></user-avatar> <span> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</span>
             </div>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+            <div class="nav-right d-flex">
+             
+                <a href="/profile/{{ Auth::user()->id }}">Your profile</a>
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                </a>
+                   
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+
         </div>
     </nav>
 </header>
