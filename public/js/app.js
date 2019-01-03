@@ -48309,7 +48309,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.userAvatar {\n  display: -ms-flexbox;\n  display: flex;\n  display: -webkit-flex;\n  display: -webkit-box;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #1ab99785;\n  color: #fff;\n  font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.userAvatar {\n  display: -ms-flexbox;\n  display: flex;\n  display: -webkit-flex;\n  display: -webkit-box;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #1ab99785;\n  color: #fff;\n  font-size: 15px;\n}\n.profileAvatar .userAvatar {\n  margin-top: -50px;\n  margin-bottom: 0.5rem;\n  width: 80px;\n  height: 80px;\n  background: #1ab997;\n  color: #fff;\n  font-size: 45px;\n}\n", ""]);
 
 // exports
 

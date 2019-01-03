@@ -44,4 +44,15 @@ props: ['fname', 'lname'],
         color: #fff;
         font-size: 15px;
     }
+    .profileAvatar{
+        .userAvatar{
+            margin-top: -50px;
+            margin-bottom: 0.5rem;
+            width: 80px;
+            height: 80px;
+            background: #1ab997;
+            color: #fff;
+            font-size: 45px;
+        }
+    }
 </style>
