@@ -75,6 +75,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="about" class="col-md-4 col-form-label text-md-right">{{ __('About') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="about" type="text" class="form-control{{ $errors->has('about') ? ' is-invalid' : '' }}" name="about" value="{{ old('about') }}"></textarea>
+
+                                @if ($errors->has('about'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('about') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ old('location') }}">
+
+                                @if ($errors->has('location'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
