@@ -1,5 +1,11 @@
 .mainProjectPage{
     .projectInfo{
+        .globalBadge{
+            color: #fff;
+            border-radius: 3px;
+            padding: 6px;
+            line-height: 1;
+        }
     }
     .projectTasks{
         .task {

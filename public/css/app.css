@@ -168,6 +168,13 @@
   font-size: 1rem;
 }
 
+.mainProjectPage .projectInfo .globalBadge {
+  color: #fff;
+  border-radius: 3px;
+  padding: 6px;
+  line-height: 1;
+}
+
 .mainProjectPage .projectTasks .task {
   border-left: 3px solid #1ab997;
   cursor: pointer;

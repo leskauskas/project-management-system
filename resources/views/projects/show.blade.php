@@ -12,7 +12,8 @@
         <div class="row">
             <div class="col-7">
                 <div class="projectInfo globalCard mb-2">
-                    <h1>{{$project->name}} </h1>
+                   
+                    <h1>{{$project->name}}</h1>
                     <p>{{$project->description}}</p>
 
                     <div class="progress" style="height: 5px">
@@ -24,7 +25,7 @@
                         <div>
                             {!! Form::open(['action' => 'TasksController@store', 'method' => 'POST']) !!}
                                 <div class="form-group">
-                                    {{ Form::text('task_name', '', ['class' => 'form-control globalInput', 'placeholder' => 'Task name'])}}
+                                    {{ Form::text('task_name', '', ['class' => 'form-control globalInput', 'placeholder' => 'Add new task here...'])}}
                                     {{ Form::hidden('project_id', $project->id) }}
                                 </div>
                                 <div class="form-group">
@@ -38,7 +39,7 @@
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <p></p>
+                            <h5 class="font-weight-bold">Tasks {{$doneTasks}}/{{$allTasks}}</h5>
                             <a href="{{ route('projects.kanban', $project->id) }}" class="btn btn-global btn-sm" title="View tasks in Kanban mode">Kanban</a>
 
                         </div>
@@ -153,51 +154,52 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                @foreach ($project->questions as $quest)
-                    <div class="globalCard mb-2" style="display: flex; justify-content: space-between">
-                      
-                        <div>
-                            <h6>{{$quest->question_title}}</h6>
-                            <p class="m-0"><i class="fas fa-arrow-right"></i> {{$quest->answer}}</p>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-global btn-sm" data-toggle="modal" data-target="#answerModal-{{ $loop->iteration }}">Answer</button>
-                        </div>
-                               
-                        <!-- answer modal -->
-                        <div class="modal fade" id="answerModal-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Answer/Edit question</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        {!! Form::model($quest, [
-                                            'method' => 'PATCH',
-                                            'route' => ['questions.update', $quest->id]
-                                        ]) !!}
 
-                                        <div class="form-group">
-                                            {{ Form::label('question_title', 'Question') }}
-                                            {{ Form::text('question_title', $quest->question_title, ['class' => 'form-control'])}}
+                    @foreach ($project->questions as $quest)
+                        <hr>
+                        <div class="" style="display: flex; justify-content: space-between">
+                            <div>
+                                <h6>{{$quest->question_title}}</h6>
+                                <p class="m-0"><i class="fas fa-arrow-right"></i> {{$quest->answer}}</p>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-global btn-sm" data-toggle="modal" data-target="#answerModal-{{ $loop->iteration }}">Answer</button>
+                            </div>
+                                    
+                            <!-- answer modal -->
+                            <div class="modal fade" id="answerModal-{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Answer/Edit question</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                         </div>
-                
-                                        <div class="form-group"> 
-                                            {{ Form::text('answer', $quest->answer, ['class' => 'form-control', 'placeholder' => 'Answer to the question'])}}
+                                        <div class="modal-body">
+                                            {!! Form::model($quest, [
+                                                'method' => 'PATCH',
+                                                'route' => ['questions.update', $quest->id]
+                                            ]) !!}
+
+                                            <div class="form-group">
+                                                {{ Form::label('question_title', 'Question') }}
+                                                {{ Form::text('question_title', $quest->question_title, ['class' => 'form-control'])}}
+                                            </div>
+                    
+                                            <div class="form-group"> 
+                                                {{ Form::text('answer', $quest->answer, ['class' => 'form-control', 'placeholder' => 'Answer to the question'])}}
+                                            </div>
+                                            {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}                                                     
+                                                
+                                            {!! Form::close() !!}
                                         </div>
-                                        {{ Form::submit('Submit', ['class' => 'btn btn-global'])}}                                                     
-                                            
-                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
                 
                 <div class="projectNotes">
                     @if (count($project->notes) == 0)
