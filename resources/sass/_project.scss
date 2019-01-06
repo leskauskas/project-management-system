@@ -22,4 +22,14 @@
     }
     .projectNotes{
     }
+    // Calendar 
+    .vdp-datepicker__calendar{
+        width: 100%;
+        border: 0;
+        box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
+        .cell.selected{
+            background: $accent-color;
+        }
+    }
+   
 }

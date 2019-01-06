@@ -32,8 +32,13 @@ Vue.component('user-avatar', require('./components/UserAvatar.vue'));
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import Datepicker from 'vuejs-datepicker';
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components:{
+        Datepicker,
+    }
 });
 
 CKEDITOR.replace('article-ckeditor');

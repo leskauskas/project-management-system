@@ -119,6 +119,10 @@
                 </div>
             </div>
             <div class="col-5">
+                <div class="d-flex justify-content-center mb-2">
+                    <datepicker :inline="true"></datepicker>
+                </div>
+
                 <div class="projectQuestions globalCard mb-2">
                     <h5 class="m-0">Questions 
                         {{-- new question button --}}
@@ -194,16 +198,21 @@
                         </div>
                     </div>
                 @endforeach
+                
                 <div class="projectNotes">
                     @if (count($project->notes) == 0)
-                        <div class="globalCard">    
-                            <button type="button" class="btn btn-global btn-sm" data-toggle="modal" data-target="#noteModal">Add a note</button>
-                            <p class="text-muted m-0 text-center">You don't have any notes yet</p>      
+                        <div class="globalCard">
+                            <h5 class="m-0">Notes 
+                                <button type="button" class="btn btn-global btn-sm ml-1" data-toggle="modal" data-target="#noteModal">Add a note</button>
+                            </h5>
+                            <p class="text-muted m-0 mt-4 text-center">You don't have any notes yet</p>      
                         </div> 
                     @else
                         @foreach ($project->notes as $n)
                             <div class="globalCard">
-                                <a href="/notes/{{$n->id}}/edit" class="btn btn-global btn-sm">Edit</a>
+                                <h5 class="m-0">Notes
+                                    <a href="/notes/{{$n->id}}/edit" class="btn btn-global btn-sm ml-1">Edit</a>
+                                </h5>
                                 <p>{!! $n->note_content !!}</p>
                             </div>
                         @endforeach
