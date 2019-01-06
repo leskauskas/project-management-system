@@ -38,7 +38,7 @@ const app = new Vue({
     el: '#app',
     components:{
         Datepicker,
-    }
+    },
 });
 
 CKEDITOR.replace('article-ckeditor');
