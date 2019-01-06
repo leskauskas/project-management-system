@@ -31,7 +31,7 @@ class Project extends Model
         }
         else{
             $projectProgress = ($doneTasks/$allTasks)*100;
-            return $projectProgress;
+            return round($projectProgress);
         }
     }
 }

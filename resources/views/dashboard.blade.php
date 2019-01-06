@@ -48,10 +48,35 @@
                             <div class="projectCard-title">
                                 <h5>{{$proj->name}}</h5>
                                 <priority-component priority="{{$proj->priority}}"></priority-component>
-                            </div> 
-                            <p><b>Due date: </b>{{date('Y-m-d', strtotime($proj->due_date))}}</p>
-                            <div class="progress" style="height: 5px">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; height: 5px"></div>
+                            </div>
+                            @php
+                                $today = date("Y-m-d");
+                                $dueDate = date("Y-m-d", strtotime($proj->due_date));
+                                $due = false;
+
+                                $date1=date_create($today);
+                                $date2=date_create($dueDate);
+                                $diff=date_diff($date1,$date2);
+                        
+                                if ((int)$diff->format("%r%a") >= 0 && (int)$diff->format("%r%a") <=5 ) {
+                                    $due = true;
+                                }
+                            @endphp
+                                
+                            <task-due duedate="{{date('Y-m-d', strtotime($proj->due_date))}}" isdue={{$due}}></task-due>
+                            <span class="badge">
+                                @php
+                                    if ((int)$diff->format("%r%a") < 0) {
+                                        echo 'Past deadline';
+                                    }
+                                    else{
+                                        echo $diff->format("%d days");
+                                    }
+                                @endphp         
+                            </span>
+
+                            <div class="progress mt-4" style="height: 5px">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%;"></div>
                             </div>
                         </div>   
                     </a>
