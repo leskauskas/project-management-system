@@ -200,6 +200,16 @@
   background: #1ab997;
 }
 
+.mainProjectPage .vdp-datepicker__calendar .cell.selected:hover {
+  background: #1ab997;
+}
+
+.mainProjectPage .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
+.mainProjectPage .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
+.mainProjectPage .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
+  border: 1px solid #1ab997;
+}
+
 .kanbanBoardContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

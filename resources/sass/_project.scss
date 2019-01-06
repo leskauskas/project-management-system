@@ -35,7 +35,12 @@
         box-shadow: 0px 2px 4px 0 rgba(48, 65, 150, 0.08);
         .cell.selected{
             background: $accent-color;
+            &:hover{
+                background: $accent-color;
+            }
         }
     }
-   
+    .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{
+        border: 1px solid $accent-color;
+    }
 }
