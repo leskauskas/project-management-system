@@ -47,7 +47,15 @@
                         <div class="globalCard projectCard mb-2">
                             <div class="projectCard-title">
                                 <h5>{{$proj->name}}</h5>
-                                <priority-component priority="{{$proj->priority}}"></priority-component>
+                                <div class="d-flex">
+                                    <priority-component priority="{{$proj->priority}}"></priority-component>
+
+                                    {!! Form::open(['action' => ['ProjectsController@destroy', $proj->id], 'method' => 'POST']) !!}
+                                        {{ Form::hidden('_method', 'DELETE')}}
+                                        <button type="submit" class="btn btn-outline-danger btn-sm ml-1"><i class="fas fa-trash-alt"></i></button>
+                                    {!! Form::close() !!}
+
+                                </div>
                             </div>
                             @php
                                 $today = date("Y-m-d");
@@ -74,9 +82,9 @@
                                     }
                                 @endphp         
                             </span>
-
-                            <div class="progress mt-4" style="height: 5px">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%;"></div>
+                            
+                            <div class="progress mt-4" style="height: 15px">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; font-weight: bold">{{$proj->getProjectProgress()}}%</div>
                             </div>
                         </div>   
                     </a>

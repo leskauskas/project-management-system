@@ -22,7 +22,7 @@
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link btn btn-global text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     </li>
                 @endguest
