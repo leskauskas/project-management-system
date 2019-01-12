@@ -46,6 +46,9 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'note_content' => 'required',
+        ]);
         $project_id = $request->input('project_id');
         $note = new Note;
         $note->note_content = $request->input('note_content');
