@@ -50488,7 +50488,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50509,6 +50509,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['xdate'],
     data: function data() {
         return {
+            themeStyles: {
+                wrapper: {
+                    background: '#fff',
+                    boxShadow: '0px 2px 4px 0 rgba(48, 65, 150, 0.08)'
+                }
+            },
             attrs: [{
                 key: 'today',
                 highlight: {
@@ -50536,7 +50542,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("v-calendar", {
-    attrs: { attributes: _vm.attrs, "is-expanded": "" }
+    attrs: {
+      attributes: _vm.attrs,
+      "is-expanded": "",
+      "theme-styles": _vm.themeStyles
+    }
   })
 }
 var staticRenderFns = []
