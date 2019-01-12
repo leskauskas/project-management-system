@@ -84,7 +84,7 @@
                             </span>
                             
                             <div class="progress mt-4" style="height: 15px">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; font-weight: bold">{{$proj->getProjectProgress()}}%</div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$proj->getProjectProgress()}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$proj->getProjectProgress()}}%; font-weight: bold"></div>
                             </div>
                         </div>   
                     </a>
