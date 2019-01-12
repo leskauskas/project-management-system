@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-12 globalCard profileCard text-center">
+            <div class="col-lg-12 globalCard profileCard text-center">
                 <div class="profileAvatar d-flex justify-content-center">
                     <user-avatar fname="{{$user->name}}" lname="{{$user->lastname}}"></user-avatar>
                 </div>
@@ -15,7 +15,7 @@
                 </div>  
             </div>
 
-            <div class="col-12 globalCard profileEdit mt-2">
+            <div class="col-lg-12 globalCard profileEdit mt-2">
                 <form method="POST" action="{{route('profile.update', $user)}}">
                     {{ csrf_field() }}
                     {{ method_field('patch') }}

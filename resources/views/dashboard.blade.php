@@ -37,7 +37,7 @@
 
     <div class="row">
 
-        <div class="col-8 dashboardProjectsColumn">
+        <div class="col-lg-8 dashboardProjectsColumn">
             <h3 class="my-4">My projects
                 <button type="button" class="btn btn-global btn-sm ml-1" data-toggle="modal" data-target="#newProjModal">Add new project</button>
             </h3>
@@ -94,7 +94,7 @@
             @endif 
         </div>
 
-        <div class="col-4 dashboardCheckColumn">
+        <div class="col-lg-4 dashboardCheckColumn">
             <h3 class="my-4">My personal checklist</h3>
             {!! Form::open(['action' => 'ChecklistsController@store', 'method' => 'POST']) !!}
                 <div class="form-group">

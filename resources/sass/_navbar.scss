@@ -60,12 +60,15 @@
     width: 100vw;
     z-index: 99;
     padding-left: 90px;
-    padding-right: 2rem;
+   // padding-right: 2rem;
     .nav-items{
         .nav-left{
 
         }
         .nav-right{
+            .mobileDropdown{
+                display: none;
+            }
             height: 100%;
             a{
                 display: inline-block;

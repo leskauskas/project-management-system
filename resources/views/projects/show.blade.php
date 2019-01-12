@@ -10,7 +10,7 @@
         {!! Form::close() !!} --}}
 
         <div class="row">
-            <div class="col-7">
+            <div class="col-lg-7">
                 <div class="projectInfo globalCard mb-2">
                    
                     <h1>{{$project->name}}</h1>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-lg-5">
                 <div class="d-flex justify-content-center mb-2">
                     <datepicker :inline="true"></datepicker>
                 </div>

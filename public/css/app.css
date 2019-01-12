@@ -57,7 +57,6 @@
   width: 100vw;
   z-index: 99;
   padding-left: 90px;
-  padding-right: 2rem;
 }
 
 #top-nav a:link {
@@ -95,6 +94,10 @@
 
 #top-nav .nav-items .nav-right {
   height: 100%;
+}
+
+#top-nav .nav-items .nav-right .mobileDropdown {
+  display: none;
 }
 
 #top-nav .nav-items .nav-right a {
@@ -10757,5 +10760,27 @@ main {
 .heading {
   padding-top: 1px;
   margin-top: 80px;
+}
+
+@media all and (max-width: 500px) {
+  #top-nav .nav-items .nav-left {
+    visibility: hidden;
+  }
+
+  #top-nav .nav-items .nav-right .mobileDropdown {
+    display: block;
+  }
+
+  #top-nav .nav-items .nav-right .deskItem {
+    display: none;
+  }
+
+  #side-nav {
+    height: 0;
+  }
+
+  main {
+    padding-left: 0px;
+  }
 }
 

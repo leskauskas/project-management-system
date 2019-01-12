@@ -61,3 +61,28 @@ main{
     padding-top: 1px;
     margin-top: 80px;
 }
+
+//media queries
+@media all and (max-width: 500px){
+    #top-nav{
+        .nav-items{
+            .nav-left{
+                visibility: hidden;
+            }
+            .nav-right{
+                .mobileDropdown{
+                    display: block;
+                }
+                .deskItem{
+                    display: none;
+                }
+            }
+        }
+    }
+    #side-nav{
+        height: 0;
+    }
+    main{
+        padding-left: 0px;
+    }
+}

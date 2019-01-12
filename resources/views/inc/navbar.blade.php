@@ -45,9 +45,24 @@
             </div>
 
             <div class="nav-right d-flex">
-             
-                <a href="/profile/{{ Auth::user()->id }}">Your profile</a>
-                <a href="{{ route('logout') }}"
+
+                <div class="dropdown mobileDropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Options
+                    </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a href="/profile/{{ Auth::user()->id }}"><i class="fas fa-user"></i>Your profile</a>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                        </a>      
+                    </div>
+                </div>
+                
+                <a class="deskItem" href="/profile/{{ Auth::user()->id }}">Your profile</a>
+                <a class="deskItem" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
