@@ -13,6 +13,17 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Landing page
+#landing{
+    background: linear-gradient(to bottom, #18c08a, #72ffd8);
+    height: calc(100vh - 58.22px);
+    .landing-content{
+        h1{
+            font-size: 3.5rem;
+        }
+    }
+}
+
 main{
     padding-top: 72px;
     padding-left: 72px;
@@ -41,6 +52,19 @@ main{
     }
 }
 
+.btn-landing{
+    background: #fff;
+    border-color: #fff;
+    color: $accent-color;
+    border-radius: 2px;
+    box-shadow: 1px 1px 18px -3px #777;
+    &:hover{
+        background: $accent-color;
+        border-color: $accent-color;
+        color: #fff;
+    }
+}
+
 .badge-global{
     background: $accent-color;
     color: #fff;
@@ -66,6 +90,15 @@ main{
 @media all and (max-width: 991px){
     .projectTasks{
         margin-bottom: 1rem;
+    }
+}
+@media all and (max-width: 576px){
+    #landing{
+        .landing-content{
+            h1{
+                font-size: 2rem;
+            }
+        }
     }
 }
 

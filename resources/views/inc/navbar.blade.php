@@ -1,8 +1,9 @@
 @guest
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'PMSys') }}
+        <a class="navbar-brand text-muted" href="{{ url('') }}"> 
+            <img src="{{ url('/images/app_logo.png') }}" class="d-inline-block align-top" alt="">
+            <span>PMSys</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -22,7 +23,7 @@
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                            <a class="nav-link btn btn-global text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link btn btn-global text-white" style="border-radius: 2px" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     </li>
                 @endguest

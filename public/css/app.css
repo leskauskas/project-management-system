@@ -116,6 +116,10 @@
   background: #fcfcfc;
 }
 
+.navbar-laravel {
+  background: #18c08a00;
+}
+
 .dashboardProjectsColumn a:link {
   text-decoration: none;
   color: #212529;
@@ -10713,6 +10717,16 @@ a.text-dark:focus {
   }
 }
 
+#landing {
+  background: -webkit-gradient(linear, left top, left bottom, from(#18c08a), to(#72ffd8));
+  background: linear-gradient(to bottom, #18c08a, #72ffd8);
+  height: calc(100vh - 58.22px);
+}
+
+#landing .landing-content h1 {
+  font-size: 3.5rem;
+}
+
 main {
   padding-top: 72px;
   padding-left: 72px;
@@ -10741,6 +10755,21 @@ main {
   border-color: #18a385;
 }
 
+.btn-landing {
+  background: #fff;
+  border-color: #fff;
+  color: #1ab997;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 18px -3px #777;
+          box-shadow: 1px 1px 18px -3px #777;
+}
+
+.btn-landing:hover {
+  background: #1ab997;
+  border-color: #1ab997;
+  color: #fff;
+}
+
 .badge-global {
   background: #1ab997;
   color: #fff;
@@ -10765,6 +10794,12 @@ main {
 @media all and (max-width: 991px) {
   .projectTasks {
     margin-bottom: 1rem;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #landing .landing-content h1 {
+    font-size: 2rem;
   }
 }
 
