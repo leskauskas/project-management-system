@@ -20,6 +20,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "v-calendar": "^0.9.7",
         "vuejs-datepicker": "^1.5.4"
     }
 }
