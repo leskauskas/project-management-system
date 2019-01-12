@@ -122,7 +122,6 @@
             <div class="col-lg-5">
                 <div class="d-flex justify-content-center mb-2">
                     <calendar xdate="{{$project->due_date}}"></calendar>
-                    {{-- <datepicker :inline="true"></datepicker> --}}
                 </div>
 
                 <div class="projectQuestions globalCard mb-2">

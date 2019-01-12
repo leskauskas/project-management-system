@@ -36,6 +36,10 @@ class ChecklistsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'checklist_title' => 'required',
+        ]);
+        
         $checklist = new Checklist;
         $checklist->checklist_title = $request->input('checklist_title');
         $checklist->is_done = $request->input('is_done');
