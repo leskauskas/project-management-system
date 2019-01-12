@@ -16,7 +16,7 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->longText('note_content');
+            $table->longText('note_content')->nullable();
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')
                 ->references('id')
