@@ -63,6 +63,12 @@ main{
 }
 
 //media queries
+@media all and (max-width: 991px){
+    .projectTasks{
+        margin-bottom: 1rem;
+    }
+}
+
 @media all and (max-width: 500px){
     #top-nav{
         .nav-items{
